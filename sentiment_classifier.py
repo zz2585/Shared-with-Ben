@@ -33,7 +33,7 @@ TEXT =data.Field(tokenize = 'spacy', include_lengths = True)
 fields = [ ('label', LABEL),(None, None),('text', TEXT)]
 
 train_data, valid_data, test_data = data.TabularDataset.splits(
-                                        path = "/mnt/phd/zzeng/RNN",
+                                        path = "~/RNN",
                                         train = 'label_text_short.csv',
                                         validation = 'label_text_valid.csv',
                                         test = 'label_text_test.csv',
@@ -238,7 +238,7 @@ def predict_sentiment(model, sentence):
     prediction = torch.sigmoid(model(tensor, length_tensor))
     return prediction.item()
 
-# apply
+# apply to full dataset
 target_df = pd.read_pickle('my_amazon_product.pkl')
 for index, row in target_df.iterrows():
     print(index)
