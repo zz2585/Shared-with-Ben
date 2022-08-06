@@ -1,0 +1,6 @@
+torch
+datasets
+numpy
+torchtext
+tqdm
+matplotlib
